@@ -1,0 +1,28 @@
+.stopwatch{
+    width:70%;
+    margin: 10vh auto;
+    text-align: center;
+}
+.stopwatch h2{
+    margin-bottom: 30px;
+}
+.dial{
+    font-size: 55px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.btn{
+    display: inline-block;
+    padding: 15px;
+    margin:0 7px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.186);
+}
+.btn:active{
+    box-shadow: none;
+    position: relative;
+    top:3px;
+}
