@@ -6,6 +6,7 @@ const resetTimer = document.getElementById("reset");
 
 let interrupt = null;
 let elapsedMs = null;
+let holdTimes = 0;
 // グローバルスコープ
 
 startTimer.addEventListener("click",function(){
@@ -17,7 +18,7 @@ startTimer.addEventListener("click",function(){
 
     interrupt = setInterval(function(){
         const currentMs = Date.now();
-        elapsedMs = currentMs - startMs;
+        elapsedMs = currentMs - startMs + holdTimes;
 
         const ms = Math.floor(elapsedMs/100) % 10;
         const s = Math.floor(elapsedMs / 1000) % 60;
@@ -35,6 +36,7 @@ startTimer.addEventListener("click",function(){
 
 stopTimer.addEventListener("click",function(){
     clearInterval(interrupt);
+    holdTimes = elapsedMs;
 
     startTimer.disabled = false;
     stopTimer.disabled = true;
@@ -42,7 +44,7 @@ stopTimer.addEventListener("click",function(){
 
 resetTimer.addEventListener("click",function(){
     clearInterval(interrupt);
-    // elapsedMs = 0;
+    holdTimes = 0;
     dial.textContent = "0 : 0 : 00 : 0";
 
     startTimer.disabled = false;
